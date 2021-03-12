@@ -1,0 +1,23 @@
+
+<div data-aos="flip-left"
+data-aos-easing="ease-out-cubic"
+data-aos-duration="2000">
+
+<div class="container">
+  <form [formGroup]="testForm">
+    <div class="form-group" >
+      <label for="exampleFormControlInput1">Email address</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="email" placeholder="name@example.com">
+    </div>
+    <div class="form-group">
+      <label for="mask">Só testando mask</label>
+    <input type="text" class="form-control" id="mask" formControlName="dinheiro" currencyMask>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Example textarea</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <button class="btn btn-info" (click)="send()">BOTAO</button>
+  </form>
+</div>
+</div>

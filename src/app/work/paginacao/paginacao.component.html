@@ -1,0 +1,28 @@
+<button class="btn btn-primary m-2" (click)="get()">BOTAO</button>
+
+<div class="container" *ngIf="localidades">
+  <table class="table table-striped shadow p-1 mb-1 bg-white rounded">
+    <thead>
+      <tr>
+        <th scope="col">codigoDeLocalidade</th>
+        <th scope="col">codigoEstado</th>
+        <th scope="col">descricao</th>
+        <th scope="col">ibge</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let localidade of localidades |  paginate: { itemsPerPage: 15, currentPage: p }">
+        <td>{{localidade.codigoDeLocalidade}}</td>
+        <td>{{localidade.codigoEstado}}</td>
+        <td>{{localidade.descricao}}</td>
+        <td>{{localidade.ibge}}</td>
+      </tr>
+    </tbody>
+
+      <pagination-controls (pageChange)="p = $event"
+      previousLabel="Anterior"
+      nextLabel="Próxima" class="minha-pagina m-1"></pagination-controls>
+  </table>
+</div>
+
+

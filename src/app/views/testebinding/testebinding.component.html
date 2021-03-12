@@ -1,0 +1,62 @@
+
+<select #classe (change)='0'>
+    <option value="alert-primary">Primário</option>
+    <option value="alert-secondary">Secundário</option>
+    <option value="alert-success">Sucesso</option>
+    <option value="alert-danger">Perigo</option>
+    <option value="alert-warning">Alerta</option>
+</select>
+
+<div class="alert" role="alert"
+    [class.alert-primary]="classe.value == 'alert-primary'"
+>
+    This is a primary alert—check it out!
+  </div>
+  <div class="alert" role="alert" [class.alert-secondary]="classe.value == 'alert-secondary'"
+  >
+    This is a secondary alert—check it out!
+  </div>
+  <div class="alert" role="alert" [class.alert-success]="classe.value == 'alert-success'">
+    This is a success alert—check it out!
+  </div>
+  <div class="alert" role="alert" [class.alert-warning]="classe.value == 'alert-warning'">
+    This is a warning alert—check it out!
+  </div>
+  <div class="alert alert-danger" role="alert" [style.display]="classe.value == 'alert-danger' ? 'block' : 'none'">
+    This is a danger alert—check it out!
+  </div>
+
+  <hr><hr>  <hr><hr>
+
+
+  <select #interruptor (change)='0'>
+    <option value="ligado">Ligar</option>
+    <option value="desligado">Desligar</option>
+  </select>
+
+  <div class="alert alert-warning" [ngStyle]="{display: (interruptor.value == 'desligado' ? 'none' : 'block')}"
+  >LIGADO</div>
+
+  <div class="alert alert-secondary"
+  [ngStyle]="{display: (interruptor.value == 'ligado' ? 'none' : 'block')}">
+  DESLIGADO</div>
+
+
+  <hr><hr>  <hr><hr>
+
+  <div class="" [ngStyle]="{display: (interruptor.value == 'desligado' ? 'none' : 'block')}">
+  <div class="container">
+    <p [ngClass]="{
+      'h2': aumentador,
+      'h5': !aumentador
+    }" (dblclick)='aumentador = !aumentador'>AUMENTADOR</p>
+  </div>
+
+  <hr><hr>
+  <p estiloamarelo>Usando diretivas</p>
+  <button type="button" hostlistener (click)="mostraSpinner()">Botão spinner</button>
+
+
+  <input placeholder="R$ 000"  currencyMask  [(ngModel)]='valor'/>
+  <input placeholder="{{valor | currency:'BRL'}}"/>
+</div>

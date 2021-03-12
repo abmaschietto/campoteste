@@ -1,0 +1,16 @@
+
+<table class="table" *ngIf="residentes">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">CEP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let residente of residentes">
+      <td><a [routerLink]="['/udemydetail', residente.cep]"> {{residente.nome}}</a></td>
+      <td>{{residente.cep}}</td>
+    </tr>
+  </tbody>
+</table>

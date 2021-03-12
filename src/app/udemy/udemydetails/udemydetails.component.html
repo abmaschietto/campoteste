@@ -1,0 +1,18 @@
+<table class="table" *ngIf="cep$ | async as cep">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Logradouro</th>
+      <th scope="col">Bairro</th>
+      <th scope="col">Localidade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Localicazação</th>
+      <td>{{cep.logradouro}}</td>
+      <td>{{cep.bairro}}</td>
+      <td>{{cep.localidade}}</td>
+    </tr>
+  </tbody>
+</table>

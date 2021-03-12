@@ -1,0 +1,11 @@
+<form >
+  <label for="um">Você é menor de idade? Digite sua idade</label>
+  <input type="text" id="um" [(ngModel)]="idade" name="idade" (blur)="idadeCalculador()">
+  <button (click)="showResult()" >Test</button>
+  <button [routerLink]="['/login']" >Login</button>
+  <button (click)='logout()' >sair</button>
+</form>
+
+<ng-container *ngIf="resultado">
+<p>{{this.resultado}}</p>
+</ng-container>

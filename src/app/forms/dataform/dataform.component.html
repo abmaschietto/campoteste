@@ -1,0 +1,48 @@
+<form [formGroup]="formulario" class="shadow p-3 mb-5 bg-red rounded mt-3">
+  <div class="form-row justify-content-right">
+    <div class="form-group col-md-5" >
+      <label for="nome">Nome</label>
+      <input class="form-control"  id="nome" #nome
+      [class.is-invalid]="aplicaCssInvalido('nome')" [class.is-valid]="aplicaCssValido('nome')"
+       aria-describedby="emailHelp" placeholder="Nome" formControlName='nome'>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="email">Email</label>
+      <input class="form-control" id="email" aria-describedby="emailHelp"
+      [class.is-invalid]="aplicaCssInvalido('email')" [class.is-valid]="aplicaCssValido('email')"
+       placeholder="email" formControlName='email'>
+       <!-- Mensagem de erro embaixo do campo com erro-->
+       <div *ngIf="formulario.get('email').errors" class="invalid-feedback">
+        <div >pum</div>
+    </div>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="email">CEP</label>
+      <input class="form-control" id="cep"
+      placeholder="000000" formControlName='cep' (blur)='buscaCep()'>
+    </div>
+    <button type="submit" class="btn btn-warning btn-sm col-md-2" [disabled]="formulario.invalid"
+    (click)='envio()'>Submit</button>
+  </div>
+
+</form>
+
+
+<table class="table" *ngIf="(Cep$ | async) as cep">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">cep</th>
+      <th scope="col">logradouro</th>
+      <th scope="col">bairro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>{{cep.cep}}</td>
+      <td>{{cep.logradouro}}</td>
+      <td>{{cep.bairro}}</td>
+    </tr>
+  </tbody>
+</table>

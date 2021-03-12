@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  cep: 'https://viacep.com.br/ws/',
+  localidade:'http://localhost:8080/simuladorVLI/v1/localidade'
 };
 
 /*
